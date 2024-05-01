@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Inwestycyjny</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="app">
         <h1>Kalkulator Inwestycyjny</h1>
-		<div id="goldPrice"> Cena Złota  9335,70 PLN</div>
-		<div id="silverPrice">Cena Srebra 107,67 PLN</div>
+        <div id="goldPrice"> Cena Złota 9335,70 PLN</div>
+        <div id="silverPrice">Cena Srebra 107,67 PLN</div>
         <div>
             <label for="investmentAmount">Kwota inwestycji (PLN):</label>
             <input type="number" value="100000" id="investmentAmount" name="investmentAmount" placeholder="Wpisz kwotę">
@@ -18,27 +20,29 @@
         <div>
             <label for="goldSlider">Złoto (%):</label>
             <span id="goldValue">70%</span>
-            <input type="range" id="goldSlider" name="goldSlider" min="0" max="100" value="70" oninput="updateSilverSlider()">
-            
+            <input type="range" id="goldSlider" name="goldSlider" min="0" max="100" value="70"
+                oninput="updateSilverSlider()">
+
         </div>
         <div>
             <label for="silverSlider">Srebro (%):</label>
             <span id="silverValue">30%</span>
-            <input type="range" id="silverSlider" name="silverSlider" min="0" max="100" value="30" oninput="updateGoldSlider()">
-            
+            <input type="range" id="silverSlider" name="silverSlider" min="0" max="100" value="30"
+                oninput="updateGoldSlider()">
+
         </div>
         <button onclick="submitRatios(), listProduksGui()">Zatwierdź</button>
         <div id="result"></div>
-        
+
         <select id="sortSelect" onchange="sortProducts()">
             <option value="priceLowToHigh">Cena rosnąco</option>
             <option value="priceHighToLow">Cena malejąco</option>
         </select>
         <div id="resultList">
-    </div>
-        
+        </div>
     </div>
 
     <script src="app.js"></script>
 </body>
+
 </html>

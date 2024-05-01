@@ -30,7 +30,6 @@ function submitRatios() {
 }
 
 
-
 function sortProducts() {
     const sortSelect = document.getElementById("sortSelect");
     const selectedSort = sortSelect.value;
@@ -51,9 +50,6 @@ function sortProducts() {
     
 }
 
-
-
-
 function renderProductList(products) {
     const resultDivList = document.getElementById("resultList");
 
@@ -69,7 +65,6 @@ function renderProductList(products) {
 
     resultDivList.innerHTML = productListHTML;
 }
-
 
 
 
