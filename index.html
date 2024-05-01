@@ -29,9 +29,16 @@
         </div>
         <button onclick="submitRatios(), listProduksGui()">Zatwierdź</button>
         <div id="result"></div>
-        <div id="resultList"></div>
+        
+        <select id="sortSelect" onchange="sortProducts()">
+            <option value="priceLowToHigh">Cena rosnąco</option>
+            <option value="priceHighToLow">Cena malejąco</option>
+        </select>
+        <div id="resultList">
     </div>
- 
+        
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>

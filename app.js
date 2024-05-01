@@ -26,19 +26,43 @@ function submitRatios() {
     const silverAmount = ((investmentAmount * silverPercentage) / 100).toFixed(2);
 
     resultDiv.innerHTML = `Złoto: ${goldPercentage}% (${goldAmount} PLN), Srebro: ${silverPercentage}% (${silverAmount} PLN)`;
+    sortProducts()
 }
 
 
-function listProduksGui() {
-    const resultDivList = document.getElementById("resultList");
-    const sortedProducts = listProduks.sort((a, b) => a.price - b.price);
 
-    const productListHTML = sortedProducts.map(product => {
+function sortProducts() {
+    const sortSelect = document.getElementById("sortSelect");
+    const selectedSort = sortSelect.value;
+    
+    let sortedProducts;
+
+    switch (selectedSort) {
+        case "priceLowToHigh":
+            sortedProducts = listProduks.slice().sort((a, b) => a.price - b.price);
+            break;
+        case "priceHighToLow":
+            sortedProducts = listProduks.slice().sort((a, b) => b.price - a.price);
+            break;
+        default:
+            sortedProducts = listProduks;
+    }
+    renderProductList(sortedProducts);
+    
+}
+
+
+
+
+function renderProductList(products) {
+    const resultDivList = document.getElementById("resultList");
+
+    const productListHTML = products.map(product => {
         return `
         <div class="product">
             <img src="${product.imgSrc}" alt="Product Image">
             <div>${product.name}</div>
-            <div>Price: ${product.price} PLN</div>
+            <div>Cena: ${product.price} PLN</div>
         </div>
         `;
     }).join("");
